@@ -231,20 +231,20 @@ function formatRange(minimum?: number, maximum?: number) {
 function convertPropertyToMarkdown(key: string, value: JsonObject, keyPrefix = '##', paintLayoutText = '') {
     let markdown = `${keyPrefix} ${key}\n*`;
     if (paintLayoutText) {
-        markdown += `[${paintLayoutText}](#${paintLayoutText.toLowerCase()}) property. `;
+        markdown += `[${paintLayoutText}](#${paintLayoutText.toLowerCase()}) プロパティです。 `;
     }
     const mdLink = typeToMarkdownLink(value.type);
     if (value.required) {
-        markdown += `Required${mdLink}`;
+        markdown += `必須の${mdLink}`;
     } else {
-        markdown += `Optional${mdLink}`;
+        markdown += `任意の${mdLink}`;
     }
 
     if (value.minimum !== undefined || value.maximum !== undefined) {
         if (value.type === 'numberArray') {
-            markdown += ` with value(s) in range ${formatRange(value.minimum, value.maximum)}`;
+            markdown += ` で値(複数化)の範囲は ${formatRange(value.minimum, value.maximum)} です。`;
         } else {
-            markdown += ` in range ${formatRange(value.minimum, value.maximum)}`;
+            markdown += ` で ${formatRange(value.minimum, value.maximum)} の範囲`;
         }
     }
 
@@ -252,26 +252,26 @@ function convertPropertyToMarkdown(key: string, value: JsonObject, keyPrefix = '
 
     const isEnum = value.type === 'enum' && value.values && !Array.isArray(value.values);
     if (isEnum) {
-        markdown += `Possible values: \`${Object.keys(value.values).join('`, `')}\`. `;
+        markdown += `可能な値: \`${Object.keys(value.values).join('`, `')}\`。 `;
     }
     if (value.units) {
-        markdown += `Units in ${value.units}. `;
+        markdown += `単位: ${value.units}。 `;
     }
     if (value.default !== undefined) {
-        markdown += `Defaults to \`${JSON.stringify(value.default)}\`. `;
+        markdown += `デフォルト値は \`${JSON.stringify(value.default)}\` です。 `;
     }
     if (value.requires) {
         markdown += requiresToMarkdown(value.requires);
     }
     if (value.expression?.interpolated) {
         if (value.expression.parameters.includes('feature-state')) {
-            markdown += 'Supports [feature-state](expressions.md#feature-state) and [interpolate](expressions.md#interpolate) expressions. ';
+            markdown += '[feature-state](expressions.md#feature-state) と [interpolate](expressions.md#interpolate) expressions をサポートします。 ';
         }  else {
-            markdown += 'Supports [interpolate](expressions.md#interpolate) expressions. ';
+            markdown += '[interpolate](expressions.md#interpolate) expressions をサポートします。 ';
         }
     }
     if (value.transition) {
-        markdown += 'Transitionable. ';
+        markdown += 'トランジション可能です。 ';
     }
 
     markdown = `${markdown.trim()}*\n\n${value.doc}\n\n`;

@@ -128,7 +128,7 @@
     },
     "sky": {
       "type": "sky",
-      "doc": "The map's sky configuration. **Note:** this definition is still experimental and is under development in maplibre-gl-js.",
+      "doc": "地図の空の設定。**注意:** この定義はまだ実験的であり、maplibre-gl-jsでの開発が進行中です。",
       "example": {
         "sky-color": "#199EF3",
         "sky-horizon-blend": 0.5,
@@ -5552,7 +5552,7 @@
         ]
       },
       "transition": true,
-      "doc": "The base color for the sky."
+      "doc": "空のベースの色です。"
     },
     "horizon-color": {
       "type": "color",
@@ -5565,7 +5565,7 @@
         ]
       },
       "transition": true,
-      "doc": "The base color at the horizon."
+      "doc": "地平線のベースの色です。"
     },
     "fog-color": {
       "type": "color",
@@ -5578,7 +5578,7 @@
         ]
       },
       "transition": true,
-      "doc": "The base color for the fog. Requires 3D terrain."
+      "doc": "霧のベースの色です。3D地形が必要です。"
     },
     "fog-ground-blend": {
       "type": "number",
@@ -5593,7 +5593,7 @@
         ]
       },
       "transition": true,
-      "doc": "How to blend the fog over the 3D terrain. Where 0 is the map center and 1 is the horizon."
+      "doc": "3D地形上の霧のブレンド方法。0は地図の中心、1は地平線を示します。"
     },
     "horizon-fog-blend": {
       "type": "number",
@@ -5608,7 +5608,7 @@
         ]
       },
       "transition": true,
-      "doc": "How to blend the fog color and the horizon color. Where 0 is using the horizon color only and 1 is using the fog color only."
+      "doc": "地平線の色と霧の色をブレンドする方法。0は地平線の色のみを使用し、1は霧の色のみを使用します。"
     },
     "sky-horizon-blend": {
       "type": "number",
@@ -5623,7 +5623,7 @@
         ]
       },
       "transition": true,
-      "doc": "How to blend the sky color and the horizon color. Where 1 is blending the color at the middle of the sky and 0 is not blending at all and using the sky color only."
+      "doc": "空の色と地平線の色をブレンドする方法。1は空の中央での色のブレンドを示し、0は全くブレンドせず空の色のみを使用します。"
     },
     "atmosphere-blend": {
       "type": "number",
@@ -5638,7 +5638,7 @@
         ]
       },
       "transition": true,
-      "doc": "How to blend the atmosphere. Where 1 is visible atmosphere and 0 is hidden. It is best to interpolate this expression when using globe projection."
+      "doc": "大気をブレンドする方法。1は大気が見える状態、0は隠れている状態を示します。地球儀投影を使用する場合は、この式を補間するのが最適です。"
     }
   },
   "terrain": {
